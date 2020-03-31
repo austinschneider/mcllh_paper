@@ -25,15 +25,15 @@
 \usepackage{listings}
 \lstdefinestyle{mystyle}{
     basicstyle=\ttfamily,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    %numbers=left,                    
-    %numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    %numbers=left,
+    %numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=4
 }
 \lstset{style=mystyle}
@@ -170,7 +170,7 @@ Note that this test-statistic definition is not appropriate in the small-sample 
 
 %Using MC we can compute the expected event count, $\lambda(\vectheta)$, by means of adding the MC event weights, as discussed in Sec.~\ref{sec:mc_intro}. Due to the finite nature of MC, we can never recover exactly the intrinsic parameter, $\lambda({\vectheta})$, from which the MC events are drawn, but can only construct estimators; the same is true for any observable of interest. As such, $\adhoc$ written in Eq.~\eqref{eq:mcpoisson} is an approximation that presumes the MC realization matches the expectation.
 
-Ideally we would like to obtain the expected event count for any hypothesis, $\lambda(\vectheta)$, however we are considering problems where this relationship is not known and $\lambda$ is instead estimated by MC. The key difference here is that instead of using exact knowledge of $\lambda$ we want to perform Bayesian inference to obtain $\prob(\lambda|\vectheta)$ using the MC available. Assuming the weights are functions of $\vectheta$, we have 
+Ideally we would like to obtain the expected event count for any hypothesis, $\lambda(\vectheta)$, however we are considering problems where this relationship is not known and $\lambda$ is instead estimated by MC. The key difference here is that instead of using exact knowledge of $\lambda$ we want to perform Bayesian inference to obtain $\prob(\lambda|\vectheta)$ using the MC available. Assuming the weights are functions of $\vectheta$, we have
 \begin{equation} \label{eq:generalpoisson}
 \like_{\rm General}(\vectheta|k) = \int_{0}^{\infty}~\frac{\lambda^{k}e^{-\lambda}}{k!}\prob\left(\lambda|\vecw(\vectheta)\right)~d\lambda,
 \end{equation}
@@ -193,7 +193,7 @@ for a bin with $m$ MC events.
 For identical weights, $w \equiv w_i~\forall i$, the following equalities hold:
 \begin{equation}\label{eq:ids}
 \mu=wm \textmd{,}~ \sigma^2=w^2 m \textmd{,}~ w=\sigma^2/\mu \textmd{, and }~ m = \mu^2/\sigma^2.
-\end{equation} 
+\end{equation}
 Assume that $m$ is the outcome of sampling a Poisson-distributed random variable $M$ with probability mass function
 \begin{equation}\label{eq:mcprob}
 \mathrm{Poisson}(M=m;\bar m) = \frac{e^{-\bar m} {\bar m}^m}{m!},
@@ -203,7 +203,7 @@ where $\bar m$ is the mean of the distribution. Further, assume that the expecte
 \like(\lambda|\vecw(\vectheta))=\like(\lambda|\mu, \sigma)=\frac{e^{-\lambda\mu/\sigma^2}\left(\lambda\mu/\sigma^2\right)^{\mu^2/\sigma^2}}{(\mu^2/\sigma^2)!},
 \label{eq:poisson_conditional}
 \end{equation}
-as $\mu$ and $\sigma$ fully specify $\vecw(\vectheta)$ for identical weights. 
+as $\mu$ and $\sigma$ fully specify $\vecw(\vectheta)$ for identical weights.
 
 \subsection{Extension to arbitrary weights\label{sec:extending}}
 The derivation above assumed identical weights. For arbitrary weights, $\mu$ is an outcome sampled from a compound Poisson distribution (CPD), which can be approximated by a scaled Poisson distribution (SPD) by matching the first and second moments of the two distributions~\cite{Bohm:2013gla}. In order to make the connection, first rewrite $\mu$ and $\sigma^2$ as
@@ -227,7 +227,7 @@ To understand this approximation, note that the maximum likelihood in Eq.~\eqref
 \mathrm{E}[\weff M] &= \weff \meff \\
 &= \mu, \nonumber
 \end{align}
-and 
+and
 \begin{align}
 \mathrm{Var}[\weff M] &= \weff^2 \meff \\
 &= \sigma^2. \nonumber
@@ -266,7 +266,7 @@ In~\cite{Glusenkamp:2017rlp}, a convolutional approach is suggested for handling
 
 \subsection{Convergence of the effective likelihood\label{sec:llhconvergence}}
 
-In this section we will show that, if the relative uncertainty of the bin content vanishes as MC size increases, $\mcl$ and $\meanl$ both converge to $\adhoc$. 
+In this section we will show that, if the relative uncertainty of the bin content vanishes as MC size increases, $\mcl$ and $\meanl$ both converge to $\adhoc$.
 
 For positive weights $w_i$, the relative uncertainty $\sigma/\mu$ is bounded between zero and one. Uncertainty as large as the estimated quantity, $\sigma/\mu=1$, occurs if and only if $m=1$. In the limit that $\sigma/\mu$ goes to zero, Eq.~\eqref{eq:theposterior} converges to $\delta(\lambda - \mu)$ and $\mcl$ and $\meanl$ both go to $\adhoc$. We can see this by noting that the shape parameter, $\agpar$, goes to infinity as the MC relative uncertainty goes to zero, turning the gamma distribution into a Gaussian distribution of mean $\agpar / \bgpar$ and variance $\agpar / \bgpar^2$. This Gaussian converges to $\delta(\lambda-\mu)$ in the limit of vanishing $\sigma/\mu$. Substituting into Eq.~\eqref{eq:generalpoisson}, we recover Eq.~\eqref{eq:mcpoisson}, which converges to Eq.~\eqref{eq:poisson} in the large MC limit.
 
@@ -389,7 +389,7 @@ Figure ~\ref{fig:llhdist} shows the posterior distributions of $\Omega$ and $\Ph
 \subsection{Performance\label{sec:performance}}
 
 In this section we compare our performance with other treatments available in the literature in terms of the runtime cost per likelihood evaluation for a single bin. We perform our tests using a single \texttt{Intel\textsuperscript{\textregistered} Core\texttrademark{} i5-8350U CPU @ 1.70GHz} running code compiled with \texttt{clang version 6.0.0-1ubuntu2}. We compute the likelihood CPU-evaluation time for the following likelihoods: $\adhoc$, modified-$\chi^2$, $\gl$~\cite{Glusenkamp:2017rlp}, $\lbarlow$~\cite{Barlow:1993dm}, and $\mcl$. For each of them we consider increasing number of MC events from $10^2$ to $10^6$, increasing number of background components from $1$ to $10^3$, and increasing counts of data events from $10^1$ to $10^4$. Figure~\ref{fig:performance} shows the behavior of the runtime with respect to these quantities. All likelihoods have runtime that increases with the number of MC events, as seen in the leftmost panel of Fig.~\ref{fig:performance}, as each likelihood must compute the sum of event weights which incurs an $\mathcal{O}(m)$ cost, where $m$ is the number of MC events in the bin. Additionally at low MC sample sizes the modified-$\chi^2$ is faster than $\mcl$ since $\mcl$ requires the evaluation of more expensive special functions, however at larger MC sample sizes this additional cost is negligible compared to that of summing the MC weights. In the middle panel of Fig.~\ref{fig:performance} it can be seen that all likelihoods except $\lbarlow$ are constant with respect to the number of background components as they only depend on summary statistics of the weight distribution. The Barlow-Beeston likelihood, $\lbarlow$, incurs an $\mathcal{O}(b d \log d)$ cost for solving a single root finding problem per physical component, where $b$ is the number of background components and $d$ is the number of digits of precision, and therefore is not constant in runtime with respect to the number of components. However, one key difference between $\lbarlow$ and $\mcl$ is that $\mcl$ must compute two summations (the sum of the weights and sum of the square weights), while $\lbarlow$ needs only to compute a single summation of the MC weights. The rightmost panel of Fig.~\ref{fig:performance} shows the runtime as a function of the number of data events; for most likelihoods the number of data events, $k$, enters only in the evaluation of some special functions which for all practical applications are approximately constant in runtime. $\gl$ evaluates a special function which for these purposes can only be computed in $\mathcal{O}(k^2 m)$ time, resulting in the dependence on the number of data events.
-The $\adhoc$ treatment is always the fastest, but it does not incorporate MC statistical uncertainties in any way.  
+The $\adhoc$ treatment is always the fastest, but it does not incorporate MC statistical uncertainties in any way.
 
 \begin{figure}[ht]
 \centering
@@ -400,7 +400,7 @@ The $\adhoc$ treatment is always the fastest, but it does not incorporate MC sta
 
 \section{Conclusion\label{sec:conclusion}}
 
-The use of MC to estimate expected outcomes of physical processes is nowadays standard practice. By construction, MC distributions are sample observations and subject to statistical fluctuations. MC events are also typically weighted to a particular physics model, and these weights may not be uniform across all events in an observable bin. 
+The use of MC to estimate expected outcomes of physical processes is nowadays standard practice. By construction, MC distributions are sample observations and subject to statistical fluctuations. MC events are also typically weighted to a particular physics model, and these weights may not be uniform across all events in an observable bin.
 A direct comparison of MC distributions to data is typically performed using $\adhoc$ or $\chi^2$, where the expectation from MC is computed as a sum over weights in a particular observable bin. Such likelihoods neglect the intrinsic MC fluctuations and may lead to vastly underestimated parameter uncertainties in the case of low MC size. A better approach is to use a likelihood that accounts for MC statistical uncertainties.
 
 Along with the definitions of $\mu$ and $\sigma^2$ in Eq.~\eqref{eq:musigma}, the main result of this work is given in Eq.~\eqref{eq:parametrizedpoisson}. This new $\mcl$ is motivated by treating the MC realization as an observation of a Poisson random variate, computing the likelihood of the expectation using the MC and marginalizing the Poisson probability of observed data over all possible expectations. It is an analytic extension of the Poisson likelihood that accounts for MC statistical uncertainty under a uniform prior, $\prob(\lambda)$. By assuming that the number of MC events per bin is the outcome of sampling a Poisson-distributed random variable, and that the SPD is a good approximation of the CPD for arbitrary weights, $\like \left(\lambda|\vecw(\vectheta)\right)$ can be written in terms of $\mu$ and $\sigma^2$ as shown in Eq.~\eqref{eq:poisson_conditional_arb}. This allows us to calculate $\mcl$, given in Eq.~\eqref{eq:parametrizedpoisson}, which can be directly substituted in favor of $\adhoc$. Our construction is computationally efficient, exhibits proper limiting behavior, and has excellent coverage properties. In our tests, it outperforms other treatments of MC statistical uncertainty.
