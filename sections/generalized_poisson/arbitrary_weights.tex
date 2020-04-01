@@ -1,20 +1,27 @@
-The derivation above assumed identical weights. For arbitrary weights, $\mu$ is an outcome sampled from a compound Poisson distribution (CPD), which can be approximated by a scaled Poisson distribution (SPD) by matching the first and second moments of the two distributions~\cite{Bohm:2013gla}. In order to make the connection, first rewrite $\mu$ and $\sigma^2$ as
+The derivation above assumed identical weights.
+For arbitrary weights, $\mu$ is an outcome sampled from a compound Poisson distribution (CPD), which can be approximated by a scaled Poisson distribution (SPD) by matching the first and second moments of the two distributions~\cite{Bohm:2013gla}.
+In order to make the connection, first rewrite $\mu$ and $\sigma^2$ as
 \begin{equation}\label{eq:effparameters}
 \mu= \weff \meff~\textmd{and}~\sigma^2 = \weff^2 \meff,
 \end{equation}
-where $\meff$ is the effective number of MC events and $\weff$ the effective weight. From Eq.~\eqref{eq:ids} these are given by: $\meff = \mu^2/\sigma^2$ and $\weff=\sigma^2/\mu$. Next, assume $\bar m = \lambda/\weff$ and
+where $\meff$ is the effective number of MC events and $\weff$ the effective weight.
+From Eq.~\eqref{eq:ids} these are given by: $\meff = \mu^2/\sigma^2$ and $\weff=\sigma^2/\mu$.
+Next, assume $\bar m = \lambda/\weff$ and
 \begin{align}
 \label{eq:probmeff}
 \like(\bar m|\meff)&= \frac{e^{-\bar m}{\bar m}^{\meff}}{\Gamma(\meff+1)},
 \end{align}
-where $\lambda$ again is the expected number of events in data. Equation \eqref{eq:probmeff} can be written as a likelihood function of $\lambda$,
+where $\lambda$ again is the expected number of events in data.
+Equation \eqref{eq:probmeff} can be written as a likelihood function of $\lambda$,
 \begin{equation}
 \like(\lambda|\vecw(\vectheta))=\like(\lambda|\mu, \sigma)=\frac{e^{-\lambda\mu/\sigma^2}\left(\lambda\mu/\sigma^2\right)^{\mu^2/\sigma^2}}{\Gamma(\mu^2/\sigma^2+1)},
 \label{eq:poisson_conditional_arb}
 \end{equation}
-which is identical to Eq.~\eqref{eq:poisson_conditional} except the denominator is now a gamma function instead of a factorial. However, since the denominator does not depend on $\lambda$ it cancels out in Eq.~\eqref{eq:posterior}.
+which is identical to Eq.~\eqref{eq:poisson_conditional} except the denominator is now a gamma function instead of a factorial.
+However, since the denominator does not depend on $\lambda$ it cancels out in Eq.~\eqref{eq:posterior}.
 
-To understand this approximation, note that the maximum likelihood in Eq.~\eqref{eq:probmeff} occurs when $\bar m = \meff$. The first and second moments of the SPD random variable $\weff M$, where $M \sim \mathrm{Poisson}(\meff)$, are given by
+To understand this approximation, note that the maximum likelihood in Eq.~\eqref{eq:probmeff} occurs when $\bar m = \meff$.
+The first and second moments of the SPD random variable $\weff M$, where $M \sim \mathrm{Poisson}(\meff)$, are given by
 \begin{align}
 \mathrm{E}[\weff M] &= \weff \meff \\
 &= \mu, \nonumber
@@ -24,4 +31,8 @@ and
 \mathrm{Var}[\weff M] &= \weff^2 \meff \\
 &= \sigma^2. \nonumber
 \end{align}
-This shows that the SPD, under the maximum likelihood solution for the given MC realization, has first and second moments that match the sample mean, $\mu$, and variance, $\sigma^2$, respectively. These are equal to the first and second moments of the CPD as described in~\cite{Bohm:2013gla}. By assuming that $\mu$ is drawn from a SPD, we can treat $\mu$ and $\sigma$ as outcomes that fix the likelihood function of the underlying scaled expectation $\lambda$, analogous to the case of identical weights. Because both the first and second moments are matched, this approximation accounts for the variance of the CPD unlike $\lbarlow$, which only accounts for the mean. Thus, while $\lbarlow$ is valid only for the case of narrow weight distributions, our approximation remains valid for broader distributions.
+This shows that the SPD, under the maximum likelihood solution for the given MC realization, has first and second moments that match the sample mean, $\mu$, and variance, $\sigma^2$, respectively.
+These are equal to the first and second moments of the CPD as described in~\cite{Bohm:2013gla}.
+By assuming that $\mu$ is drawn from a SPD, we can treat $\mu$ and $\sigma$ as outcomes that fix the likelihood function of the underlying scaled expectation $\lambda$, analogous to the case of identical weights.
+Because both the first and second moments are matched, this approximation accounts for the variance of the CPD unlike $\lbarlow$, which only accounts for the mean.
+Thus, while $\lbarlow$ is valid only for the case of narrow weight distributions, our approximation remains valid for broader distributions.

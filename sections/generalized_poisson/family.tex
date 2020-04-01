@@ -1,7 +1,23 @@
-It is possible to generalize the choice of $\alpha$ and $\beta$ in Eq.~\eqref{eq:alphabetamc} by choosing a particular form of $\prob(\lambda)$. Since the distribution of interest is a Poisson distribution, a well-motivated choice of $\prob(\lambda)$ is a gamma distribution (the conjugate prior of the Poisson distribution)~\cite{Fink97acompendium}; also see~\cite{Glusenkamp:2017rlp} for a recent discussion. Thus we set $\prob(\lambda) = \gprob(\lambda; a, b)$, where $a$ and $b$ are the shape and inverse-scale parameters of the gamma distribution, respectively. These hyper-parameters dictate the distribution of the Poisson parameter $\lambda$~\cite{bernardo2009bayesian}. In line with our previous discussion, the gamma distribution prior implies that Eq.~\eqref{eq:alphabetamc} becomes
+It is possible to generalize the choice of $\alpha$ and $\beta$ in Eq.~\eqref{eq:alphabetamc} by choosing a particular form of $\prob(\lambda)$.
+Since the distribution of interest is a Poisson distribution, a well-motivated choice of $\prob(\lambda)$ is a gamma distribution (the conjugate prior of the Poisson distribution)~\cite{Fink97acompendium}; also see~\cite{Glusenkamp:2017rlp} for a recent discussion.
+Thus we set $\prob(\lambda) = \gprob(\lambda; a, b)$, where $a$ and $b$ are the shape and inverse-scale parameters of the gamma distribution, respectively.
+These hyper-parameters dictate the distribution of the Poisson parameter $\lambda$~\cite{bernardo2009bayesian}.
+In line with our previous discussion, the gamma distribution prior implies that Eq.~\eqref{eq:alphabetamc} becomes
 \begin{equation}\label{eq:alphabetagamma}
 \agpar = \frac{\mu^2}{\sigma^2}+a~\textmd{and}~\bgpar=\frac{\mu}{\sigma^2}+b.
 \end{equation}
-The rest of the likelihood derivation remains the same. This allows the choice of specific values for $a$ and $b$ to satisfy certain properties. Equation~\eqref{eq:alphabetamc} is obtained with $a=1$ and $b=0$, corresponding to the uniform prior discussed above. Another interesting choice is to require that the mean and variance of $\prob(\lambda|\mu, \sigma)$ match $\mu$ and $\sigma^2$, respectively. This can be achieved by setting $a=b=0$, and we refer to this parameter assignment as $\meanl$. In the case of identical weights, $\meanl$ is equivalent to Eq.~(20) in~\cite{Glusenkamp:2017rlp}. Both choices are improper priors, as technically they are limiting cases of the gamma distribution. However, we can use them to obtain proper $\prob(\lambda|\mu, \sigma)$ distributions.
+The rest of the likelihood derivation remains the same.
+This allows the choice of specific values for $a$ and $b$ to satisfy certain properties.
+Equation~\eqref{eq:alphabetamc} is obtained with $a=1$ and $b=0$, corresponding to the uniform prior discussed above.
+Another interesting choice is to require that the mean and variance of $\prob(\lambda|\mu, \sigma)$ match $\mu$ and $\sigma^2$, respectively.
+This can be achieved by setting $a=b=0$, and we refer to this parameter assignment as $\meanl$.
+In the case of identical weights, $\meanl$ is equivalent to Eq.~(20) in~\cite{Glusenkamp:2017rlp}.
+Both choices are improper priors, as technically they are limiting cases of the gamma distribution.
+However, we can use them to obtain proper $\prob(\lambda|\mu, \sigma)$ distributions.
 
-In~\cite{Glusenkamp:2017rlp}, a convolutional approach is suggested for handling arbitrary weights. We refer to this likelihood as $\gl$. Each weighted MC event has $\prob(\lambda_i|w_i)=\gprob(\lambda_i; 1, 1/w_i)$, corresponding to the prior $\prob(\lambda_i) = \gprob(\lambda_i;0,0)$, such that $\lambda = \sum_i^m \lambda_i$. The likelihood $\meanl$ is a good analytic approximation of the more computationally expensive calculation given in~\cite{Glusenkamp:2017rlp} for $\gl$. The latter has time complexity $\mathcal{O}(k^2 m)$ where $k$ and $m$ are the number of data and MC events in the bin respectively. When assuming uniform priors, the convolutional approach does not recover Eq.~\eqref{eq:theposterior} for identical weights, so it cannot be used as a generalization of $\mcl$.
+In~\cite{Glusenkamp:2017rlp}, a convolutional approach is suggested for handling arbitrary weights.
+We refer to this likelihood as $\gl$.
+Each weighted MC event has $\prob(\lambda_i|w_i)=\gprob(\lambda_i; 1, 1/w_i)$, corresponding to the prior $\prob(\lambda_i) = \gprob(\lambda_i;0,0)$, such that $\lambda = \sum_i^m \lambda_i$.
+The likelihood $\meanl$ is a good analytic approximation of the more computationally expensive calculation given in~\cite{Glusenkamp:2017rlp} for $\gl$.
+The latter has time complexity $\mathcal{O}(k^2 m)$ where $k$ and $m$ are the number of data and MC events in the bin respectively.
+When assuming uniform priors, the convolutional approach does not recover Eq.~\eqref{eq:theposterior} for identical weights, so it cannot be used as a generalization of $\mcl$.

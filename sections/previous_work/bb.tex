@@ -1,9 +1,17 @@
-To treat MC statistical uncertainties in the small sample limit, a modification of the Poisson likelihood was introduced in~\cite{Barlow:1993dm}, which is briefly covered below. First, note that the expectation in a single bin is given by contributions from different physical processes, which we index by $j$. Then, the number of expected events can be written as
+To treat MC statistical uncertainties in the small sample limit, a modification of the Poisson likelihood was introduced in~\cite{Barlow:1993dm}, which is briefly covered below.
+First, note that the expectation in a single bin is given by contributions from different physical processes, which we index by $j$.
+Then, the number of expected events can be written as
 \begin{equation}
 \lambda(\vectheta) = \sum_{j=1}^s \bar n_{j}(\vectheta),
 \label{eq:barlow_true_nonweighted}
 \end{equation}
-where $\bar n_{j}$ is the expected number of MC events from process $j$ that fall in the bin and $s$ is the total number of relevant processes. Substituting Eq.~\eqref{eq:barlow_true_nonweighted} into Eq.~\eqref{eq:poisson} gives the Poisson likelihood for observing $k$ data events. For stochastic models, $\bar n_j$ is unknown. Instead, the MC outcome can be modeled as having drawn $n_j$ events from a random process that simulates the physical process. When MC generation is expensive, we can approximate $n_j$ as being drawn from a Poisson process with mean $\bar{n}_j$~\footnote{The MC generation is a binomial process where we generate a fixed number of events for each process, $N_j$, and accept them into the bin of interest with probability $\beta_{j}(\vectheta)$, such that $\bar n_{j}(\vectheta)=\beta_{j}(\vectheta) N_j$. In the limit of both of rare processes ($\beta_{j} \ll 1$) and large number of generated events ($N_j \gg 1$), the total number of observed events can be approximated as Poisson distributed with mean $\lambda(\vectheta) = \sum_j\beta_{j}(\vectheta) N_j = \sum_j\bar n_{j}(\vectheta)$.}. Profiling on the true number of MC events per process in the bin results in the Barlow-Beeston (BB) likelihood, given by~\cite{Barlow:1993dm}
+where $\bar n_{j}$ is the expected number of MC events from process $j$ that fall in the bin and $s$ is the total number of relevant processes.
+Substituting Eq.~\eqref{eq:barlow_true_nonweighted} into Eq.~\eqref{eq:poisson} gives the Poisson likelihood for observing $k$ data events.
+For stochastic models, $\bar n_j$ is unknown.
+Instead, the MC outcome can be modeled as having drawn $n_j$ events from a random process that simulates the physical process.
+When MC generation is expensive, we can approximate $n_j$ as being drawn from a Poisson process with mean $\bar{n}_j$~\footnote{The MC generation is a binomial process where we generate a fixed number of events for each process, $N_j$, and accept them into the bin of interest with probability $\beta_{j}(\vectheta)$, such that $\bar n_{j}(\vectheta)=\beta_{j}(\vectheta) N_j$.
+In the limit of both of rare processes ($\beta_{j} \ll 1$) and large number of generated events ($N_j \gg 1$), the total number of observed events can be approximated as Poisson distributed with mean $\lambda(\vectheta) = \sum_j\beta_{j}(\vectheta) N_j = \sum_j\bar n_{j}(\vectheta)$.}.
+Profiling on the true number of MC events per process in the bin results in the Barlow-Beeston (BB) likelihood, given by~\cite{Barlow:1993dm}
 \begin{equation}
 \lbarlow(\vectheta|k) = \underset{\{\bar n_j\}}{\rm max}
 \frac{\lambda(\vectheta)^{k}e^{-\lambda(\vectheta)}}{k!} \prod_{j=1}^s \frac{\bar n_j^{n_j}e^{-\bar n_j}}{n_j!},
@@ -11,10 +19,14 @@ where $\bar n_{j}$ is the expected number of MC events from process $j$ that fal
 \end{equation}
 where $\lambda(\vectheta)$ is given by Eq.~\eqref{eq:barlow_true_nonweighted}, $n_{j}$ and $\bar{n}_{j}$ are the estimated and true MC counts in the bin respectively, and $\{\bar{n}_j\}_{j=1}^{s}$ denotes the $s$ nuisance parameters we have profiled over.
 
-In the above formalism we have produced the MC at the natural rate, but this is not the case for weighted MC. The prescription is given by replacing Eq.~\eqref{eq:barlow_true_nonweighted} with
+In the above formalism we have produced the MC at the natural rate, but this is not the case for weighted MC.
+The prescription is given by replacing Eq.~\eqref{eq:barlow_true_nonweighted} with
 \begin{equation}
 \lambda(\vectheta) = \sum_{j=1}^s \eta_{j}(\vectheta) \bar n_j,
 \label{eq:barlow_true_weighted}
 \end{equation}
-where $\eta_{j}(\vectheta)$ is a scale factor for process $j$ that accounts for the differences in the MC generation and the target hypothesis of interest. In this case, the likelihood definition is still given by Eq.~\eqref{eq:barlow_likelihood_nonweighted}; an explicit formula for $s=1$ is given in the appendix. However, for arbitrary weight distributions per physical process $\lbarlow$ may not be appropriate as it neglects the variance from a sum of weights~\cite{Barlow:1993dm}. It remains valid only in the case where the distribution of weights for each process is narrow.
+where $\eta_{j}(\vectheta)$ is a scale factor for process $j$ that accounts for the differences in the MC generation and the target hypothesis of interest.
+In this case, the likelihood definition is still given by Eq.~\eqref{eq:barlow_likelihood_nonweighted}; an explicit formula for $s=1$ is given in the appendix.
+However, for arbitrary weight distributions per physical process $\lbarlow$ may not be appropriate as it neglects the variance from a sum of weights~\cite{Barlow:1993dm}.
+It remains valid only in the case where the distribution of weights for each process is narrow.
 

@@ -1,4 +1,5 @@
-Now that we have an expression for $\like(\lambda|\vecw(\vectheta))$ from the MC, we can proceed to compute Eq.~\eqref{eq:generalpoisson} under a uniform $\prob(\lambda)$. To simplify the notation, let
+Now that we have an expression for $\like(\lambda|\vecw(\vectheta))$ from the MC, we can proceed to compute Eq.~\eqref{eq:generalpoisson} under a uniform $\prob(\lambda)$.
+To simplify the notation, let
 \begin{equation}\label{eq:alphabetamc}
 \agpar = \frac{\mu^2}{\sigma^2}+1~\textmd{and}~\bgpar=\frac{\mu}{\sigma^2}.
 \end{equation}
@@ -9,7 +10,8 @@ Then, assuming a uniform $\prob(\lambda)$ and substituting Eq.~\eqref{eq:poisson
 &= \gprob(\lambda;\agpar, \bgpar),
 \end{align}
 where $\Gamma$ is the gamma function and $\gprob$ the gamma distribution with shape parameter $\agpar$ and inverse-scale parameter $\bgpar$.
-Note that in going from Eq.~\eqref{eq:poisson_conditional_arb} to Eq.~\eqref{eq:theposterior} $\mu$ and $\sigma^2$ go from random variates for a particular $\lambda$ to parameters that govern the probability density of $\lambda$. With this choice of $\like(\lambda|\vecw(\vectheta))$ and $\prob(\lambda)$, we can rewrite $\like_{\rm General}$ from Eq.~\eqref{eq:generalpoisson} as
+Note that in going from Eq.~\eqref{eq:poisson_conditional_arb} to Eq.~\eqref{eq:theposterior} $\mu$ and $\sigma^2$ go from random variates for a particular $\lambda$ to parameters that govern the probability density of $\lambda$.
+With this choice of $\like(\lambda|\vecw(\vectheta))$ and $\prob(\lambda)$, we can rewrite $\like_{\rm General}$ from Eq.~\eqref{eq:generalpoisson} as
 \begin{align}
 \mcl(\vectheta|k) &=\int_{0}^{\infty}~\frac{\lambda^k e^{-\lambda}}{k!}\gprob(\lambda;\agpar, \bgpar)~d\lambda \\
 &= \frac{\bgpar^\agpar\Gamma\left(k+\agpar\right)}{k!\left(1+\bgpar\right)^{k+\agpar}\Gamma\left(\agpar\right)} \\

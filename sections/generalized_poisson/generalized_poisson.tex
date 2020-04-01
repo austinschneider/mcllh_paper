@@ -1,12 +1,25 @@
-Ideally we would like to obtain the expected event count for any hypothesis, $\lambda(\vectheta)$, however we are considering problems where this relationship is not known and $\lambda$ is instead estimated by MC. The key difference here is that instead of using exact knowledge of $\lambda$ we want to perform Bayesian inference to obtain $\prob(\lambda|\vectheta)$ using the MC available. Assuming the weights are functions of $\vectheta$, we have
+Ideally we would like to obtain the expected event count for any hypothesis, $\lambda(\vectheta)$, however we are considering problems where this relationship is not known and $\lambda$ is instead estimated by MC.
+The key difference here is that instead of using exact knowledge of $\lambda$ we want to perform Bayesian inference to obtain $\prob(\lambda|\vectheta)$ using the MC available.
+Assuming the weights are functions of $\vectheta$, we have
 \begin{equation} \label{eq:generalpoisson}
 \like_{\rm General}(\vectheta|k) = \int_{0}^{\infty}~\frac{\lambda^{k}e^{-\lambda}}{k!}\prob\left(\lambda|\vecw(\vectheta)\right)~d\lambda,
 \end{equation}
-where the distribution of $\lambda$, $\prob\left(\lambda|\vecw(\vectheta)\right)$, is inferred from the MC. %Note that to obtain $\like_{\rm General}$ we have implicitly made the assumption that $\prob(w_i'|\vectheta)=\delta(w_i'-w_i(\vectheta))$ for each event $i$ in the bin, and integrated over all possible $\vec{w_i'}$.
-The likelihood, $\adhoc$, in Eq.~\eqref{eq:mcpoisson} is recovered when $\prob(\lambda|\vecw(\vectheta)) = \delta\left(\lambda - \sum_{i}{w_i(\vectheta)}\right)$, but clearly this is an unrealistic assumption as it presumes perfect knowledge of the parameter $\lambda(\vectheta)$ from a finite number of realizations. Instead, it is more appropriate to construct $\prob(\lambda|\vecw(\vectheta))$ based on the MC realization. This is given by
+where the distribution of $\lambda$, $\prob\left(\lambda|\vecw(\vectheta)\right)$, is inferred from the MC.
+%Note that to obtain $\like_{\rm General}$ we have implicitly made the assumption that $\prob(w_i'|\vectheta)=\delta(w_i'-w_i(\vectheta))$ for each event $i$ in the bin, and integrated over all possible $\vec{w_i'}$.
+The likelihood, $\adhoc$, in Eq.~\eqref{eq:mcpoisson} is recovered when $\prob(\lambda|\vecw(\vectheta)) = \delta\left(\lambda - \sum_{i}{w_i(\vectheta)}\right)$, but clearly this is an unrealistic assumption as it presumes perfect knowledge of the parameter $\lambda(\vectheta)$ from a finite number of realizations.
+Instead, it is more appropriate to construct $\prob(\lambda|\vecw(\vectheta))$ based on the MC realization.
+This is given by
 \begin{equation} \label{eq:posterior}
 \prob\left(\lambda|\vecw(\vectheta)\right) = \frac{\like(\lambda|\vecw(\vectheta))\prob(\lambda)}{\int_0^\infty \like(\lambda'|\vecw(\vectheta))\prob(\lambda')~d\lambda'},
 \end{equation}
-where $\prob(\lambda)$ is a prior on $\lambda$ that must be chosen appropriately and $\like(\lambda|\vecw(\vectheta))$ is the likelihood of $\lambda$ given $\vecw(\vectheta)$. This is similar to~\cite{Barlow:1993dm, Cranmer:2012sba}, but instead of fitting $\lambda$ as a nuisance parameter as in $\lbarlow$ in Eq.~\eqref{eq:barlow_likelihood_nonweighted}, we marginalize over it in Eq.~\eqref{eq:generalpoisson} as informed by the MC weights. When $\like_{\rm General}$ is used under a frequentist approach, the marginalization over $\lambda$ implies a hybrid Bayesian-frequentist construction, similar to the treatment of nuisance parameters described in~\cite{Cousins:1991qz} and employed in~\cite{Abe:2017vif, Abe:2018wpn}.
+where $\prob(\lambda)$ is a prior on $\lambda$ that must be chosen appropriately and $\like(\lambda|\vecw(\vectheta))$ is the likelihood of $\lambda$ given $\vecw(\vectheta)$.
+This is similar to~\cite{Barlow:1993dm, Cranmer:2012sba}, but instead of fitting $\lambda$ as a nuisance parameter as in $\lbarlow$ in Eq.~\eqref{eq:barlow_likelihood_nonweighted}, we marginalize over it in Eq.~\eqref{eq:generalpoisson} as informed by the MC weights.
+When $\like_{\rm General}$ is used under a frequentist approach, the marginalization over $\lambda$ implies a hybrid Bayesian-frequentist construction, similar to the treatment of nuisance parameters described in~\cite{Cousins:1991qz} and employed in~\cite{Abe:2017vif, Abe:2018wpn}.
 
-This section is organized as follows. We first derive $\like(\lambda|\vecw(\vectheta))$ assuming identical weights in Sec.~\ref{sec:constructing}, then extend it to arbitrary weights in Sec.~\ref{sec:extending}. With this in hand, we calculate an analytic expression for Eq.~\eqref{eq:generalpoisson} using Eq.~\eqref{eq:posterior} under a uniform $\prob(\lambda)$ in Sec.~\ref{sec:effective}. In Sec.~\ref{sec:priors} we briefly discuss a family of distributions as possible alternative priors. In Sec.~\ref{sec:llhconvergence} we show that our effective likelihood converges to Eq.~\eqref{eq:mcpoisson} in the limit of large MC size. Finally, in Sec.~\ref{sec:llhbehavior} we provide some intuition on the behavior of our generalized likelihood. Equation \eqref{eq:parametrizedpoisson}, along with the definitions of $\mu$ and $\sigma^2$ given in Eq.~\eqref{eq:musigma}, constitute the primary result of this work.
+This section is organized as follows.
+We first derive $\like(\lambda|\vecw(\vectheta))$ assuming identical weights in Sec.~\ref{sec:constructing}, then extend it to arbitrary weights in Sec.~\ref{sec:extending}.
+With this in hand, we calculate an analytic expression for Eq.~\eqref{eq:generalpoisson} using Eq.~\eqref{eq:posterior} under a uniform $\prob(\lambda)$ in Sec.~\ref{sec:effective}.
+In Sec.~\ref{sec:priors} we briefly discuss a family of distributions as possible alternative priors.
+In Sec.~\ref{sec:llhconvergence} we show that our effective likelihood converges to Eq.~\eqref{eq:mcpoisson} in the limit of large MC size.
+Finally, in Sec.~\ref{sec:llhbehavior} we provide some intuition on the behavior of our generalized likelihood.
+Equation \eqref{eq:parametrizedpoisson}, along with the definitions of $\mu$ and $\sigma^2$ given in Eq.~\eqref{eq:musigma}, constitute the primary result of this work.

@@ -1,8 +1,14 @@
 In this section we will show that, if the relative uncertainty of the bin content vanishes as MC size increases, $\mcl$ and $\meanl$ both converge to $\adhoc$.
 
-For positive weights $w_i$, the relative uncertainty $\sigma/\mu$ is bounded between zero and one. Uncertainty as large as the estimated quantity, $\sigma/\mu=1$, occurs if and only if $m=1$. In the limit that $\sigma/\mu$ goes to zero, Eq.~\eqref{eq:theposterior} converges to $\delta(\lambda - \mu)$ and $\mcl$ and $\meanl$ both go to $\adhoc$. We can see this by noting that the shape parameter, $\agpar$, goes to infinity as the MC relative uncertainty goes to zero, turning the gamma distribution into a Gaussian distribution of mean $\agpar / \bgpar$ and variance $\agpar / \bgpar^2$. This Gaussian converges to $\delta(\lambda-\mu)$ in the limit of vanishing $\sigma/\mu$. Substituting into Eq.~\eqref{eq:generalpoisson}, we recover Eq.~\eqref{eq:mcpoisson}, which converges to Eq.~\eqref{eq:poisson} in the large MC limit.
+For positive weights $w_i$, the relative uncertainty $\sigma/\mu$ is bounded between zero and one.
+Uncertainty as large as the estimated quantity, $\sigma/\mu=1$, occurs if and only if $m=1$.
+In the limit that $\sigma/\mu$ goes to zero, Eq.~\eqref{eq:theposterior} converges to $\delta(\lambda - \mu)$ and $\mcl$ and $\meanl$ both go to $\adhoc$.
+We can see this by noting that the shape parameter, $\agpar$, goes to infinity as the MC relative uncertainty goes to zero, turning the gamma distribution into a Gaussian distribution of mean $\agpar / \bgpar$ and variance $\agpar / \bgpar^2$.
+This Gaussian converges to $\delta(\lambda-\mu)$ in the limit of vanishing $\sigma/\mu$.
+Substituting into Eq.~\eqref{eq:generalpoisson}, we recover Eq.~\eqref{eq:mcpoisson}, which converges to Eq.~\eqref{eq:poisson} in the large MC limit.
 
-It remains to be shown that the relative uncertainty of the bin content vanishes as MC size increases. For identical weights,
+It remains to be shown that the relative uncertainty of the bin content vanishes as MC size increases.
+For identical weights,
 \begin{equation}
 \lim_{m\to\infty} \frac{\sigma_{\rm identical}}{\mu_{\rm identical}} = \lim_{m\to\infty} \frac{1}{\sqrt{m}} = 0 .
 \end{equation}
@@ -10,4 +16,6 @@ For arbitrary weights, the limit can be written in terms of the running average 
 \begin{align}
 \lim_{m\to\infty} \frac{\sigma}{\mu} &= \lim_{m\to\infty} \frac{\sqrt{\langle w^2 \rangle_m}}{\langle w\rangle_m\sqrt{m}},
 \end{align}
-where $\langle w \rangle_m$ is the average over $w_i$ and $\langle w^2 \rangle_m$ the average over $w_i^2$ for $i \leq m$. This shows that as long as $\langle w^2 \rangle_m$ does not grow much faster than $\langle w \rangle_m^2$, the limit will converge to zero. For weight distributions with positive support and finite, non-zero mean, this should be the case.
+where $\langle w \rangle_m$ is the average over $w_i$ and $\langle w^2 \rangle_m$ the average over $w_i^2$ for $i \leq m$.
+This shows that as long as $\langle w^2 \rangle_m$ does not grow much faster than $\langle w \rangle_m^2$, the limit will converge to zero.
+For weight distributions with positive support and finite, non-zero mean, this should be the case.
