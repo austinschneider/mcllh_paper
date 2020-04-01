@@ -1,0 +1,15 @@
+\begin{figure}[ht]
+\centering
+    \includegraphics[width=1\linewidth]{fig/fig6}
+\caption{\textbf{\textit{Posterior distributions in parameter space.}} Comparison of $\prob(\vectheta|k)$ for $\mcl$ (blue) and $\adhoc$ (orange). Each horizontal row above uses a different MC set size, with $N_\mathrm{MC}=10^4$, $10^5$, and $10^6$ from top to bottom. The left and center column show the marginal posterior distribution for the mass, $\Omega$, and normalization, $\Phi$, respectively. The true value is indicated by the dashed, vertical line. The rightmost column shows the joint posterior distribution with 68\% (solid) and 95\% (dashed) contours. The true values are indicated by the star.}
+\label{fig:llhdist}
+\end{figure}
+
+It is also possible to use $\mcl$ in a Bayesian approach. Using Bayes' theorem, the posterior
+\begin{equation}
+\prob(\vectheta|k) \propto \like(\vectheta|k) \pi(\vectheta),
+\end{equation}
+where $\pi(\vectheta)$ is a prior on the parameters. As evaluation of the normalization factor can by challenging, $\prob(\vectheta|k)$ can be approximated using a Markov Chain Monte Carlo (MCMC). For our toy example, we used \emcee{}~\cite{ForemanMackey:2012ig} to sample $\prob(\vectheta|k)$ under a uniform box prior for two different likelihood functions: $\mcl$ and $\adhoc$. The sampling was performed using the data and MC sets described in Sec.~\ref{sec:pointestimation}.
+
+Figure ~\ref{fig:llhdist} shows the posterior distributions of $\Omega$ and $\Phi$. For each comparison, $\mcl$ (blue) and $\adhoc$ (orange) were sampled using the same underlying data and MC. We used 20 walkers with 300 burn-in steps followed by 1000 steps as settings for \emcee. The left and center column show the marginal posterior distribution for the mass, $\Omega$, and normalization, $\Phi$, respectively. The true value is indicated by the dashed, vertical line. The rightmost column shows the joint posterior distribution with 68\% (solid) and 95\% (dashed) contours. The true values are indicated by the star. With $\adhoc$, the true value of the parameter is highly improbable for the lower MC-size cases of the top and middle rows. In contrast, the posterior evaluated using $\mcl$ has increased width due to the reduced MC size. Even for $N_\mathrm{MC}=10^6$ (bottom row), the shape of the posterior evaluated using $\adhoc$ is narrower than that using $\mcl$. Credible regions estimated using $\adhoc$ would bias the result.
+

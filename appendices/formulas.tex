@@ -1,0 +1,17 @@
+\begin{table}[h!]
+\centering
+\begin{tabular}{l | c}
+\toprule
+Parameters & $\mu \equiv \sum_{i=1}^m w_i, ~ \sigma^2 \equiv \sum_{i=1}^m w_i^2$ \\
+\hline\hline
+$\adhoc$ & $\frac{\mu^{k}e^{-\mu}}{k!}$\\ \hline
+$\chi^2_{\rm mod}$ & $\frac{(k - \mu)^2}{\mu + \sigma^2}$ \\ \hline
+$\lbarlow^{s=1}$ & $\underset{\bar m}{\rm max} \left\{
+\frac{1}{k!m!} \left(\frac{\mu \bar m}{m}\right)^{k}\bar m^{m} e^{-\frac{\mu \bar m}{m} -\bar m} \right\}$ \\ \hline
+$\meanl$ & $\left(\frac{\mu}{\sigma^2}\right)^{\frac{\mu^2}{\sigma^2}}\Gamma\left(k+\frac{\mu^2}{\sigma^2}\right)\left[k!\left(1+\frac{\mu}{\sigma^2}\right)^{k+\frac{\mu^2}{\sigma^2}}\Gamma\left(\frac{\mu^2}{\sigma^2}\right)\right]^{-1}$ \\ \hline
+$\mcl$ & $\left(\frac{\mu}{\sigma^2}\right)^{\frac{\mu^2}{\sigma^2}+1}\Gamma\left(k+\frac{\mu^2}{\sigma^2}+1\right)\left[k!\left(1+\frac{\mu}{\sigma^2}\right)^{k+\frac{\mu^2}{\sigma^2}+1}\Gamma\left(\frac{\mu^2}{\sigma^2}+1\right)\right]^{-1}$ \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{\textit{Table of likelihood formulas.}} The likelihood functions discussed in this paper are given in each row. They are written in terms of $\mu$ and $\sigma$, whose explicit formulas are given in the top row, and the number of observed events, $k$, in the bin. In the case of $\lbarlow$ we write the likelihood for the single-process case. Our main result and recommended likelihood, $\mcl$, is given in the last row.}
+\label{tbl:likelihoods}
+\end{table}

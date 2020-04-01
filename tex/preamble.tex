@@ -1,0 +1,82 @@
+\documentclass[a4paper, 11pt]{article}
+\pdfoutput=1
+\usepackage{jheppub}
+
+% uncomment this line for PRD format
+% \documentclass[aps,prd,showpacs,letterpaper,onecolumn,longbibliography,superscriptaddress,notitlepage,nofootinbib]{revtex4-1}%
+
+% already included in jheppub.sty. Uncomment for PRD format
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{amsmath}
+%\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue, allcolors=blue]{hyperref}
+%\usepackage{graphics,rotate,epsfig,color}
+
+\usepackage[caption=false]{subfig}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{gensymb}
+% defines table rules for professional looking tables
+\usepackage{booktabs}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+    basicstyle=\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    %numbers=left,
+    %numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4
+}
+\lstset{style=mystyle}
+
+%https://tex.stackexchange.com/questions/222697/how-to-use-booktab-or-type-this-table-in-revtex4-revtex4-1
+\AtBeginDocument{
+\heavyrulewidth=.08em
+\lightrulewidth=.05em
+\cmidrulewidth=.03em
+\belowrulesep=.65ex
+\belowbottomsep=0pt
+\aboverulesep=.4ex
+\abovetopsep=0pt
+\cmidrulesep=\doublerulesep
+\cmidrulekern=.5em
+\defaultaddspace=.5em
+}
+
+\newcommand{\Python}{\texttt{Python}}
+\newcommand{\like}{\mathcal{L}}
+\newcommand{\vectheta}{\vec{\theta}}
+\newcommand{\vecw}{\vec{w}}
+\newcommand{\prob}{\mathcal{P}}
+\newcommand{\gprob}{\mathcal{G}}
+\newcommand{\meanl}{\mathcal{L}_{\textmd{Mean}}}
+\newcommand{\mcl}{\like_\textmd{Eff}}
+\newcommand{\gl}{\like_\textmd{G}}
+\newcommand{\adhoc}{\mathcal{L}_{\textmd{AdHoc}}}
+\newcommand{\lpoisson}{l_{\textmd{Poisson}}}
+\newcommand{\lmc}{l_\textmd{Eff}}
+\newcommand{\lbarlow}{\like_{\textmd{BB}}}
+\newcommand{\hatmu}{\hat{\mu}}
+\newcommand{\hatpoisson}{\hatmu_\textmd{Poisson}}
+\newcommand{\hatmc}{\hatmu_\textmd{Eff}}
+\newcommand{\au}{arb. unit}
+\newcommand{\agpar}{\alpha}
+\newcommand{\bgpar}{\beta}
+\newcommand{\emcee}{\texttt{emcee}}
+\newcommand{\meff}{m_\mathrm{Eff}}
+\newcommand{\weff}{w_\mathrm{Eff}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%%%%% TIKZ
+\input{tex/mc_diagram_preamble}
+%

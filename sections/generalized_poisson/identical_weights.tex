@@ -1,0 +1,20 @@
+In this section we derive $\like(\lambda|\vecw(\vectheta))$ for identical weights. We will show that $\like(\lambda|\vecw(\vectheta))$ can be written in terms of two quantities
+\begin{equation}\label{eq:musigma}
+\mu \equiv \sum_{i=1}^m w_i~\textmd{and}~\sigma^2 \equiv \sum_{i=1}^m w_i^2
+\end{equation}
+for a bin with $m$ MC events.
+
+For identical weights, $w \equiv w_i~\forall i$, the following equalities hold:
+\begin{equation}\label{eq:ids}
+\mu=wm \textmd{,}~ \sigma^2=w^2 m \textmd{,}~ w=\sigma^2/\mu \textmd{, and }~ m = \mu^2/\sigma^2.
+\end{equation}
+Assume that $m$ is the outcome of sampling a Poisson-distributed random variable $M$ with probability mass function
+\begin{equation}\label{eq:mcprob}
+\mathrm{Poisson}(M=m;\bar m) = \frac{e^{-\bar m} {\bar m}^m}{m!},
+\end{equation}
+where $\bar m$ is the mean of the distribution. Further, assume that the expected number of data events $\lambda=w \bar m$ so that $\bar m = \lambda/w$. Substituting back into Eq.~\eqref{eq:mcprob}, we can interpret $\mathrm{Poisson}(M=m;\bar m)$ as a likelihood function of $\lambda$
+\begin{equation}
+\like(\lambda|\vecw(\vectheta))=\like(\lambda|\mu, \sigma)=\frac{e^{-\lambda\mu/\sigma^2}\left(\lambda\mu/\sigma^2\right)^{\mu^2/\sigma^2}}{(\mu^2/\sigma^2)!},
+\label{eq:poisson_conditional}
+\end{equation}
+as $\mu$ and $\sigma$ fully specify $\vecw(\vectheta)$ for identical weights.

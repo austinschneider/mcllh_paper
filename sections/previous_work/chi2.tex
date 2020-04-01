@@ -1,0 +1,21 @@
+In the large-sample regime, the Gaussian distribution is an appropriate description of the observed data. In this limit, the use of Pearson's $\chi^2$ as a test-statistic~\cite{Pearson:1900} is common practice. For a single analysis bin, Pearson's $\chi^2$ is defined as
+\begin{equation}
+\chi^2(\vectheta) = \frac{(k - \lambda(\vectheta))^2}{\lambda(\vectheta)},
+\label{eq:chi2_pearson}
+\end{equation}
+where we continue to use the approximation $\lambda(\vectheta) = \sum_i{w_i(\vectheta)}$ and $w_i$ are the weights of each of the MC events. The form of Pearson's $\chi^2$ arises from the fact that the Gaussian distribution of $k$ is the large-sample limit of a Poisson distribution for which the expected statistical variance of the observation is given by $\lambda(\vectheta)$. Systematic uncertainties, under the assumption that they follow a Gaussian distribution and are independent between bins, can be included as
+\begin{equation}
+\chi^2(\vectheta) = \frac{(k - \lambda(\vectheta))^2}{\lambda(\vectheta) + \sigma^2_{\rm syst.}}.
+\label{eq:chi2_systematics}
+\end{equation}
+However, this method of incorporating systematic uncertainties tends to overestimate them in shape-only analyses; see~\cite{Cogswell:2018auu} for a recent discussion in the context of reactor neutrino anomalies. Similarly, one can include uncertainties to account for statistical fluctuations of the MC in the test-statistic. In doing so, the Gaussian behavior is implicit and the modified $\chi^2$ reads
+\begin{align}
+\chi^2_{\rm mod}(\vectheta) = \frac{(k - \lambda(\vectheta))^2}{\lambda(\vectheta) + \sigma^2_{\rm syst.} + \sigma^2_{\rm mc}},
+\label{eq:modified_chi2}
+\end{align}
+where $\sigma^2_{\rm mc}$ is the MC statistical uncertainty in the bin given by
+\begin{equation}\label{eq:sigma}
+\sigma^2_{\rm mc}(\vectheta) \equiv \sum_{i=1}^m w_i(\vectheta)^2.
+\end{equation}
+Note that this test-statistic definition is not appropriate in the small-sample regime, as the data is no longer well described by a Gaussian distribution. If one uses a $\chi^2$ test-statistic in the small-sample regime, one ought to calculate the test-statistic distribution properly to achieve appropriate coverage~\cite{cowan1998statistical}.
+

@@ -1,0 +1,10 @@
+In order to compare MC with data, events are often binned into distributions across a set of observables. For simplicity we focus on a single bin. In the absence of cross-bin-correlated systematic uncertainties the generalization to multiple bins is simply a product over the likelihood in all bins. This is assumed for the remainder of the paper. It is well known that the count of independent, rare natural processes can be described by the Poisson likelihood, given by
+\begin{equation}
+\label{eq:poisson}
+\like(\vectheta|k) = \mathrm{Poisson}(k;\lambda(\vectheta)) = \frac{\lambda(\vectheta)^{k}e^{-\lambda(\vectheta)}}{k!},
+\end{equation}
+where $\lambda(\vectheta)$ is the expected bin count for a hypothesis and $k$ is the number of observed data events. Equation \eqref{eq:poisson} requires exact knowledge of the expected bin count, $\lambda(\vectheta)$. In the case of complex experiments it is often not possible to obtain $\lambda(\vectheta)$ exactly and MC techniques are used to estimate the expected distributions. For weighted MC, often a direct substitution of $\lambda(\vectheta)$ by $\sum_i{w_i(\vectheta)}$ is used, where $w_i$ are the weights of each of the MC events in the bin. Then Eq.~\eqref{eq:poisson} can be approximated as
+\begin{equation} \label{eq:mcpoisson}
+\adhoc(\vectheta|k) = \frac{\left(\sum_{i}{w_i(\vectheta)}\right)^{k}e^{-\left(\sum_{i}{w_i\left(\vectheta\right)}\right)}}{k!}.
+\end{equation}
+This ad hoc treatment assumes that the MC estimate of the expected bin counts exactly matches the true expectation rate of the model, neglecting the stochastic nature of MC. In the case of large MC, Eq.~\eqref{eq:mcpoisson} converges to Eq.~\eqref{eq:poisson} for the hypothesis given by $\vectheta$.
