@@ -12,6 +12,12 @@ The rightmost panel of Fig.~\ref{fig:performance} shows the runtime as a functio
 $\gl$ evaluates a special function which for these purposes can only be computed in $\mathcal{O}(k^2 m)$ time, resulting in the dependence on the number of data events.
 The $\adhoc$ treatment is always the fastest, but it does not incorporate MC statistical uncertainties in any way.
 
+These tests make the behavior clear for single likelihood evaluations, and we expect similar trends for the runtime when applied to inference problems that are solved using MCMC techniques.
+However, additional complications can arise for inference techniques that make use of the profile likelihood.
+Global minimization can be affected by the numerical precision of the likelihood evaluation and any discontinuities that result.
+We have found such performance issues for $\lbarlow$ and $\gl$, while other techniques seem to have better numerical stability.
+While it may be possible to overcome these issues for $\lbarlow$ and $\gl$, currently known techniques have fallen short.
+
 \begin{sidewaysfigure}[ht]
 \centering
     \includegraphics[width=1\linewidth]{fig/fig7_multi_panel}

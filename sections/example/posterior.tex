@@ -11,7 +11,7 @@ The true values are indicated by the star.}
 \end{figure}
 
 It is also possible to use $\mcl$ in a Bayesian approach.
-Using Bayes' theorem, the posterior
+Using Bayes' theorem, the posterior is
 \begin{equation}
 \prob(\vectheta|k) \propto \like(\vectheta|k) \pi(\vectheta),
 \end{equation}
@@ -20,7 +20,7 @@ As evaluation of the normalization factor can by challenging, $\prob(\vectheta|k
 For our toy example, we used \emcee{}~\cite{ForemanMackey:2012ig} to sample $\prob(\vectheta|k)$ under a uniform box prior for two different likelihood functions: $\mcl$ and $\adhoc$.
 The sampling was performed using the data and MC sets described in Sec.~\ref{sec:pointestimation}.
 
-Figure ~\ref{fig:llhdist} shows the posterior distributions of $\Omega$ and $\Phi$.
+Figure~\ref{fig:llhdist} shows the posterior distributions of $\Omega$ and $\Phi$.
 For each comparison, $\mcl$ (blue) and $\adhoc$ (orange) were sampled using the same underlying data and MC.
 We used 20 walkers with 300 burn-in steps followed by 1000 steps as settings for \emcee.
 The left and center column show the marginal posterior distribution for the mass, $\Omega$, and normalization, $\Phi$, respectively.

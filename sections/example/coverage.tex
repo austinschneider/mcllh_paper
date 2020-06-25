@@ -1,10 +1,10 @@
-Due to the higher computational cost of computing frequentist confidence intervals by generating pseudodata to estimate the test-statistic ($\mathcal{TS}$) distribution, it is common to use the approximation given by Wilks' theorem for the cases where the underlying hypotheses hold.
+Due to the higher computational cost of computing frequentist confidence intervals by generating pseudodata to estimate the test-statistic ($\mathcal{TS}$) distribution, it is common to use the approximation given by Wilks' theorem for the cases where the underlying assumptions hold.
 In the case of small MC, a likelihood description that neglects MC uncertainties may lead to undercoverage even for a large data sample.
-In this section, we will use  $\mathcal{TS}=\Delta l=l(\vectheta_{\rm true})-l(\hat{\vectheta})$, where $\vectheta_{\rm true}$ and $\hat{\vectheta}$ correspond to the true and best-fit $(\Omega, \Phi)$, respectively.
+In this section, we will use $\mathcal{TS}=\Delta l=l(\vectheta_{\rm true})-l(\hat{\vectheta})$, where $\vectheta_{\rm true}$ and $\hat{\vectheta}$ correspond to the true and best-fit $(\Omega, \Phi)$, respectively.
 We evaluate the coverage properties, computed using the asymptotic approximation given by Wilks' theorem, of the two-dimensional fit over $(\Omega, \Phi)$ for several likelihood constructions.
 These include the modified-$\chi^2$, $\adhoc$, $\lbarlow$, $\meanl$, and $\mcl$.
 These five test-statistics were chosen on the basis of their computation speed and as tests of different approaches towards the treatment of weighted MC.
-Note that using Wilks' theorem is an approximation and in general we encourage the reader to perform coverage tests for their own particular setup.
+Note that using Wilks' theorem is an approximation and in general coverage tests should be performed to determine if it holds for a given experimental setup.
 
 \begin{figure}[htp]
 \centering
@@ -32,5 +32,9 @@ First note that, as expected, the true coverage is highly dependent on MC size, 
 In the case of $N_\mathrm{MC}=10^3$, $\lbarlow$, $\meanl$, modified-$\chi^2$, and $\adhoc$ all undercover to varying degrees of severeness.
 For $N_\mathrm{MC}=10^6$, $\adhoc$ still undercovers, which is not surprising as it presumes zero MC uncertainty, but the other likelihoods exhibit good agreement.
 In this benchmark test, $\mcl$ exhibits the best coverage properties.
-However, note that using Wilks’ theorem in order to evaluate confidence intervals implies an asymptotic approximation.
-In general, this approximation does not necessarily have to hold and we encourage the reader to always perform their own coverage tests suitable for their particular experimental setup.
+Note that these two examples represent extremely low simulation sample sizes in comparison to the data, and more realistic scenarios may not show such large deviations.
+Further tests have shown that these coverage properties hold true for cases where the background simulation size is small and the signal simulation size more appropriate; this is case for most IceCube analyses.
+We do not expect these coverage properties to hold for cases in which the asymptotic approximation breaks down for infinite simulation sample size.
+Finally, in the unlikely scenario where signal simulation samples are small and background simulation samples are large, the coverage of this method in the asymptotic approximation breaks down.
+In this last case other methods exist that may provide better coverage at the cost of additional computational complexity~\cite{Glusenkamp:2019uir}.
+
