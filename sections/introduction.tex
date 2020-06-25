@@ -10,15 +10,14 @@ This is especially important for small-signal searches, performed in the small s
 A Poisson likelihood is a more appropriate statistical description of event counts~\cite{poisson1837recherches}, but in that case a proper treatment of MC statistical uncertainties is less straightforward.
 Solutions to this problem have been discussed in the literature in the context of frequentist statistics by adding nuisance parameters~\cite{Barlow:1993dm,Cranmer:2012sba,Chirkin:2013lya}, as well as detailed probabilistic treatment of MC weights~\cite{Glusenkamp:2017rlp}.
 However, \cite{Barlow:1993dm, Chirkin:2013lya, Glusenkamp:2017rlp} add additional time complexity, and \cite{Cranmer:2012sba} does not provide a full exposition on how to incorporate weighted MC.
-We present a new treatment that is valid in the large and small limit of the data sample size, suited for frequentist and Bayesian analyses, based on the Poisson likelihood.
+This section presents a new treatment that is valid in the large and small limit of the data sample size, suited for frequentist and Bayesian analyses, based on the Poisson likelihood.
 Our likelihood accounts for statistical uncertainties due to MC, allows for arbitrary event-by-event reweighting, and is computationally efficient.
 A test statistic based on the proposed likelihood is found to follow a distribution closer to the asymptotic form expected from Wilks' theorem.
 An implementation of the likelihood described in this work can be found in~\cite{MCLLH}.
 
-This paper is organized as follows.
-In Sec.~\ref{sec:mc_intro} we briefly review two common treatments available in the literature to account for MC statistical uncertainty.
-In Sec.~\ref{sec:generalization_poisson} we define and discuss our new likelihood.
-In Sec.~\ref{sec:example} we study the performance of the likelihood through an example and compare it to other likelihoods in the literature.
-In Sec.~\ref{sec:conclusion} we provide our conclusions.
-A summary of the likelihoods discussed in the paper, including our main result, is given in Appendix~\ref{sec:appendixA}.
+Section~\ref{sec:mc_intro} briefly reviews two common treatments available in the literature to account for MC statistical uncertainty.
+Section~\ref{sec:generalization_poisson} defines and discusses a new likelihood.
+Section~\ref{sec:example} studies the performance of the likelihood through an example and compares it to other likelihoods in the literature.
+Section~\ref{sec:llhconclusion} provide our conclusions.
+A summary of the likelihoods discussed, including the main result of this work, is given in Appendix~\ref{sec:llhtable}.
 

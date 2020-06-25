@@ -10,7 +10,7 @@ Substituting Eq.~\eqref{eq:barlow_true_nonweighted} into Eq.~\eqref{eq:poisson} 
 For stochastic models, $\bar n_j$ is unknown.
 Instead, the MC outcome can be modeled as having drawn $n_j$ events from a random process that simulates the physical process.
 When MC generation is expensive, we can approximate $n_j$ as being drawn from a Poisson process with mean $\bar{n}_j$~\footnote{The MC generation is a binomial process where we generate a fixed number of events for each process, $N_j$, and accept them into the bin of interest with probability $\beta_{j}(\vectheta)$, such that $\bar n_{j}(\vectheta)=\beta_{j}(\vectheta) N_j$.
-In the limit of both of rare processes ($\beta_{j} \ll 1$) and large number of generated events ($N_j \gg 1$), the total number of observed events can be approximated as Poisson distributed with mean $\lambda(\vectheta) = \sum_j\beta_{j}(\vectheta) N_j = \sum_j\bar n_{j}(\vectheta)$.}.
+In the limit of both rare processes ($\beta_{j} \ll 1$) and a large number of generated events ($N_j \gg 1$), the total number of observed events can be approximated as Poisson distributed with mean $\lambda(\vectheta) = \sum_j\beta_{j}(\vectheta) N_j = \sum_j\bar n_{j}(\vectheta)$.}.
 Profiling on the true number of MC events per process in the bin results in the Barlow-Beeston (BB) likelihood, given by~\cite{Barlow:1993dm}
 \begin{equation}
 \lbarlow(\vectheta|k) = \underset{\{\bar n_j\}}{\rm max}
@@ -19,7 +19,7 @@ Profiling on the true number of MC events per process in the bin results in the 
 \end{equation}
 where $\lambda(\vectheta)$ is given by Eq.~\eqref{eq:barlow_true_nonweighted}, $n_{j}$ and $\bar{n}_{j}$ are the estimated and true MC counts in the bin respectively, and $\{\bar{n}_j\}_{j=1}^{s}$ denotes the $s$ nuisance parameters we have profiled over.
 
-In the above formalism we have produced the MC at the natural rate, but this is not the case for weighted MC.
+In the above formalism MC has been produced at the natural rate, but this is not the case for weighted MC.
 The prescription is given by replacing Eq.~\eqref{eq:barlow_true_nonweighted} with
 \begin{equation}
 \lambda(\vectheta) = \sum_{j=1}^s \eta_{j}(\vectheta) \bar n_j,
@@ -30,3 +30,8 @@ In this case, the likelihood definition is still given by Eq.~\eqref{eq:barlow_l
 However, for arbitrary weight distributions per physical process $\lbarlow$ may not be appropriate as it neglects the variance from a sum of weights~\cite{Barlow:1993dm}.
 It remains valid only in the case where the distribution of weights for each process is narrow.
 
+A computational issue with this approach arises for $s\geq 1$.
+Although the likelihood may be expressed simply as the maximum with respect to the per-bin nuisance parameters, this maximization becomes computationally cumbersome for large $s$.
+The primary result of~\cite{Barlow:1993dm} is a more efficient approach that reduces the global maximization into $s$ root finding problems.
+However, when this numerical root-finding approach introduces discrete jumps in the numerical approximation of the likelihood.
+These discrete jumps in turn cause problems for the global maximization of the likelihood with respect to physical parameters, and can cause this procedure to fail.
