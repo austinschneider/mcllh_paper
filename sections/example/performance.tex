@@ -18,13 +18,13 @@ Global minimization can be affected by the numerical precision of the likelihood
 We have found such performance issues for $\lbarlow$ and $\gl$, while other techniques seem to have better numerical stability.
 While it may be possible to overcome these issues for $\lbarlow$ and $\gl$, currently known techniques have fallen short.
 
-\begin{sidewaysfigure}[ht]
+\begin{figure}[ht]
 \centering
-    \includegraphics[width=1\linewidth]{fig/fig7_multi_panel}
+        \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{fig/fig7_multi_panel}
 \caption{\textbf{\textit{Likelihood function performance.}} Average single likelihood evaluation time is shown in the vertical axis in seconds.
 Different line colors show different likelihoods.
-Leftmost panel: the number of MC events used is shown on the horizontal axis.
+Top-most panel: the number of MC events used is shown on the horizontal axis.
 Center panel: the number of background components is shown on the horizontal axis.
-Rightmost panel: the number of data events is show on the horizontal axis.}
+Bottom-most panel: the number of data events is show on the horizontal axis.}
 \label{fig:performance}
-\end{sidewaysfigure}
+\end{figure}
