@@ -1,5 +1,5 @@
 Due to the higher computational cost of computing frequentist confidence intervals by generating pseudodata to estimate the test-statistic ($\mathcal{TS}$) distribution, it is common to use the approximation given by Wilks' theorem for the cases where the underlying assumptions hold.
-In the case of small MC, a likelihood description that neglects MC uncertainties may lead to undercoverage even for a large data sample.
+In the case of small MC, a likelihood description that neglects MC uncertainties may lead to under-coverage even for a large data sample.
 In this section, we will use $\mathcal{TS}=\Delta l=l(\vectheta_{\rm true})-l(\hat{\vectheta})$, where $\vectheta_{\rm true}$ and $\hat{\vectheta}$ correspond to the true and best-fit $(\Omega, \Phi)$, respectively.
 We evaluate the coverage properties, computed using the asymptotic approximation given by Wilks' theorem, of the two-dimensional fit over $(\Omega, \Phi)$ for several likelihood constructions.
 These include the modified-$\chi^2$, $\adhoc$, $\lbarlow$, $\meanl$, and $\mcl$.
@@ -16,7 +16,7 @@ Note that using Wilks' theorem is an approximation and in general coverage tests
         \includegraphics[width=0.48\linewidth]{fig/fig5_1_1e6}
     }
 \caption{\textbf{\textit{Coverage properties.}} True coverage of the Wilks' confidence interval for two sets of toy experiments with different MC sizes: $10^3$ events (left) and $10^6$ events (right).
-The ad hoc Poisson likelihood severely undercovers.
+The ad hoc Poisson likelihood severely under-covers.
 The modified-$\chi^2$, $\lbarlow$, and $\meanl$ also undercover for small MC size.
 The effective likelihood, $\mcl$, derived in Sec.~\ref{sec:constructing} performs best.}
 \label{fig:coverage}
@@ -30,7 +30,7 @@ Each toy experiment was classified as covering $\vectheta_{\rm true}$ at a speci
 Figure~\ref{fig:coverage} shows the percentage of times the true parameters were within the confidence intervals at level $p$ as a function of the estimated coverage percentile for that level.
 First note that, as expected, the true coverage is highly dependent on MC size, with higher MC size leading towards improved agreement.
 In the case of $N_\mathrm{MC}=10^3$, $\lbarlow$, $\meanl$, modified-$\chi^2$, and $\adhoc$ all undercover to varying degrees of severeness.
-For $N_\mathrm{MC}=10^6$, $\adhoc$ still undercovers, which is not surprising as it presumes zero MC uncertainty, but the other likelihoods exhibit good agreement.
+For $N_\mathrm{MC}=10^6$, $\adhoc$ still under-covers, which is not surprising as it presumes zero MC uncertainty, but the other likelihoods exhibit good agreement.
 In this benchmark test, $\mcl$ exhibits the best coverage properties.
 Note that these two examples represent extremely low simulation sample sizes in comparison to the data, and more realistic scenarios may not show such large deviations.
 Further tests have shown that these coverage properties hold true for cases where the background simulation size is small and the signal simulation size more appropriate; this is case for most IceCube analyses.

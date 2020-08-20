@@ -10,7 +10,7 @@ Substituting Eq.~\eqref{eq:barlow_true_nonweighted} into Eq.~\eqref{eq:poisson} 
 For stochastic models, $\bar n_j$ is unknown.
 Instead, the MC outcome can be modeled as having drawn $n_j$ events from a random process that simulates the physical process.
 When MC generation is expensive, we can approximate $n_j$ as being drawn from a Poisson process with mean $\bar{n}_j$~\footnote{The MC generation is a binomial process where we generate a fixed number of events for each process, $N_j$, and accept them into the bin of interest with probability $\beta_{j}(\vectheta)$, such that $\bar n_{j}(\vectheta)=\beta_{j}(\vectheta) N_j$.
-In the limit of both rare processes ($\beta_{j} \ll 1$) and a large number of generated events ($N_j \gg 1$), the total number of observed events can be approximated as Poisson distributed with mean $\lambda(\vectheta) = \sum_j\beta_{j}(\vectheta) N_j = \sum_j\bar n_{j}(\vectheta)$.}.
+In the limit of both rare processes ($\beta_{j} \ll 1$) and many generated events ($N_j \gg 1$), the total number of observed events can be approximated as Poisson distributed with mean $\lambda(\vectheta) = \sum_j\beta_{j}(\vectheta) N_j = \sum_j\bar n_{j}(\vectheta)$.}.
 Profiling on the true number of MC events per process in the bin results in the Barlow-Beeston (BB) likelihood, given by~\cite{Barlow:1993dm}
 \begin{equation}
 \lbarlow(\vectheta|k) = \underset{\{\bar n_j\}}{\rm max}
